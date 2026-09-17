@@ -179,10 +179,7 @@ export default function Hero() {
             </span>
           </h1>
           <p className="mt-8 text-[1.05rem] leading-relaxed text-cream-dim max-w-xl font-light opacity-0 animate-fade-up" style={{ animationDelay: '0.75s', animationFillMode: 'forwards' }}>
-            No filters. No safety nets.{' '}
-            <span className="text-gold italic">Just intelligence under pressure.</span>
-            <br />
-            The human side of your favourite Web3 founders — live.
+            The place where the people shaping Web3 and internet culture come to talk, discover, debate, and connect.
           </p>
           <div className="flex flex-wrap gap-4 mt-10 opacity-0 animate-fade-up" style={{ animationDelay: '0.9s', animationFillMode: 'forwards' }}>
             {/* Scrolls down to the Episodes section */}
