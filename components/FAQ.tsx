@@ -5,8 +5,8 @@ import { useInView } from 'react-intersection-observer'
 
 const faqs = [
   {
-    q: 'Where can I watch Unchained Grills?',
-    a: 'Unchained Grills is currently on YouTube — full-length video episodes with no cuts, no edits. Click the YouTube link in the nav or visit the Episodes section above. Other streaming platforms will be added in the future.',
+    q: 'Where can I watch Uncensored Grills?',
+    a: 'Uncensored Grills is currently on YouTube — full-length video episodes with no cuts, no edits. Click the YouTube link in the nav or visit the Episodes section above. Other streaming platforms will be added in the future.',
   },
   {
     q: 'How often are episodes released?',
@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: 'What kind of questions does Dipo ask?',
-    a: 'The ones most interviewers won\'t. Unchained Grills exists to reveal the human side of Web3 leaders — the decisions, the failures, the real opinions. If you\'re expecting a product pitch session, this isn\'t it.',
+    a: 'The ones most interviewers won\'t. Uncensored Grills exists to reveal the human side of Web3 leaders — the decisions, the failures, the real opinions. If you\'re expecting a product pitch session, this isn\'t it.',
   },
   {
     q: 'Do you accept sponsors?',

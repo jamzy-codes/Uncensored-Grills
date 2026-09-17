@@ -1,6 +1,6 @@
 export default function Marquee() {
   const items = [
-    { text: "Unchained Grills", lit: true },
+    { text: "Uncensored Grills", lit: true },
     { text: "No Filters", lit: false },
     { text: "Intelligence Under Pressure", lit: false },
     { text: "Human Side of Web3", lit: true },

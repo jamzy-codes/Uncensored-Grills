@@ -170,7 +170,7 @@ export default function Hero() {
             Human Intelligence Inside Web3
           </div>
           <div className="mb-8 opacity-0 animate-fade-up" style={{ animationDelay: '0.45s', animationFillMode: 'forwards' }}>
-            <Image src="/images/logo.jpg" alt="Unchained Grills logo" width={120} height={120} className="object-contain" />
+            <Image src="/images/logo.jpg" alt="Uncensored Grills logo" width={120} height={120} className="object-contain" />
           </div>
           <h1 className="opacity-0 animate-fade-up" style={{ animationDelay: '0.55s', animationFillMode: 'forwards' }}>
             <span className="display-heading block text-[clamp(4.5rem,13vw,11rem)]">Unchained</span>

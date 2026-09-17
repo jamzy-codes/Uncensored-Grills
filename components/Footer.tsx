@@ -24,10 +24,10 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-5">
               <div className="relative w-10 h-10 overflow-hidden flex-shrink-0">
-                <Image src="/images/logo.jpg" alt="Unchained Grills" fill className="object-cover" />
+                <Image src="/images/logo.jpg" alt="Uncensored Grills" fill className="object-cover" />
               </div>
               <span className="font-display text-[1rem] tracking-[0.14em] text-white uppercase">
-                Unchained Grills
+                Uncensored Grills
               </span>
             </div>
             <p className="font-sans font-light text-cream-dim text-[0.85rem] leading-[1.85] max-w-[300px] mb-8">
@@ -41,7 +41,7 @@ export default function Footer() {
                 href={X_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Follow Unchained Grills on X"
+                aria-label="Follow Uncensored Grills on X"
                 className="w-10 h-10 border border-gold-line flex items-center justify-center text-cream-dim hover:text-gold hover:border-gold transition-all duration-200 font-mono text-[0.8rem]"
               >
                 𝕏
@@ -50,7 +50,7 @@ export default function Footer() {
                 href={YT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Watch Unchained Grills on YouTube"
+                aria-label="Watch Uncensored Grills on YouTube"
                 className="w-10 h-10 border border-gold-line flex items-center justify-center text-cream-dim hover:text-gold hover:border-gold transition-all duration-200 text-[0.75rem]"
               >
                 ▶
@@ -105,7 +105,7 @@ export default function Footer() {
 
         <div className="py-7 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-mono text-[0.52rem] tracking-[0.14em] uppercase text-cream-ghost/40">
-            © 2025 Unchained Grills · All rights reserved
+            © 2025 Uncensored Grills · All rights reserved
           </p>
           <p className="font-mono text-[0.52rem] tracking-[0.14em] uppercase text-gold/30">
             Human Intelligence Inside Web3

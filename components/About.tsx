@@ -35,7 +35,7 @@ export default function About() {
 
             <div className="space-y-5 text-cream-dim leading-[1.9] text-[0.95rem] font-light">
               <p>
-                Unchained Grills is a <span className="text-cream">human intelligence show</span> inside Web3.
+                Uncensored Grills is a <span className="text-cream">human intelligence show</span> inside Web3.
                 We sit Web3 founders and leaders down and strip away the performance —
                 the pitch decks, the talking points, the brand voice. What's left is the human.
               </p>
@@ -72,7 +72,7 @@ export default function About() {
             <div className="relative w-full aspect-[3/4] overflow-hidden mb-0 bracket-corners">
               <Image
                 src="/images/dipo.jpg"
-                alt="Dipo — Host of Unchained Grills"
+                  alt="Dipo — Host of Uncensored Grills"
                 fill
                 className="object-cover object-top grayscale-[15%]"
               />
@@ -84,7 +84,7 @@ export default function About() {
                   Dipo
                 </div>
                 <div className="font-mono text-[0.58rem] tracking-[0.22em] uppercase text-gold mt-1">
-                  Founder &amp; Host · Unchained Grills
+                  Founder &amp; Host · Uncensored Grills
                 </div>
               </div>
             </div>

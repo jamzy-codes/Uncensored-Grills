@@ -1,4 +1,4 @@
-# Unchained Grills — Website
+# Uncensored Grills — Website
 
 A human intelligence show inside Web3. Built with Next.js 14, Tailwind CSS, Framer Motion, and Three.js.
 

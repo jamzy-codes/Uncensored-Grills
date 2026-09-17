@@ -65,7 +65,7 @@ export default function GuestForm() {
               {[
                 { n: '01', text: 'A real conversation — not an interview. We go where the truth lives.' },
                 { n: '02', text: 'No questions sent in advance. Come ready for anything.' },
-                { n: '03', text: 'Your episode shared across Unchained Grills\' YouTube and X channels.' },
+                { n: '03', text: 'Your episode shared across Uncensored Grills\' YouTube and X channels.' },
               ].map((item) => (
                 <div key={item.n} className="flex gap-4 items-start">
                   <span className="font-mono text-[0.56rem] text-gold/50 mt-1 flex-shrink-0">{item.n}.</span>

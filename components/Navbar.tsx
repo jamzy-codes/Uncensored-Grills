@@ -35,7 +35,7 @@ export default function Navbar() {
           <div className="relative w-9 h-9 overflow-hidden">
             <Image
               src="/images/logo.jpg"
-              alt="Unchained Grills"
+              alt="Uncensored Grills"
               fill
               className="object-cover"
             />
@@ -43,7 +43,7 @@ export default function Navbar() {
           <span
             className="font-display text-[0.95rem] tracking-[0.14em] text-white uppercase hidden sm:block"
           >
-            Unchained Grills
+            Uncensored Grills
           </span>
         </a>
 
