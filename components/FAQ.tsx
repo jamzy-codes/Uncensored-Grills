@@ -6,23 +6,23 @@ import { useInView } from 'react-intersection-observer'
 const faqs = [
   {
     q: 'Where can I watch Uncensored Grills?',
-    a: 'Uncensored Grills is currently on YouTube — full-length video episodes with no cuts, no edits. Click the YouTube link in the nav or visit the Episodes section above. Other streaming platforms will be added in the future.',
+    a: 'Uncensored Grills is currently on YouTube. Full-length video episodes with no cuts, no edits. Click the YouTube link in the nav or visit the Episodes section above. Other streaming platforms will be added in the future.',
   },
   {
     q: 'How often are episodes released?',
-    a: 'Episodes don\'t follow a fixed schedule. A new episode drops when the right guest is ready — someone with something real to say. Quality over cadence. Subscribe on YouTube or join the newsletter to get notified the moment a new episode is live.',
+    a: 'Episodes don\'t follow a fixed schedule. A new episode drops when the right guest is ready, someone with something real to say. Quality over cadence. Subscribe on YouTube or join the newsletter to get notified the moment a new episode is live.',
   },
   {
     q: 'Can I be a guest on the show?',
-    a: 'Yes — if you\'re a Web3 founder, builder, or leader with a real story to tell, apply using the form above. Dipo reviews every application personally. No pre-screened questions. No guaranteed softballs. Come ready to go deep.',
+    a: 'Yes. If you\'re a Web3 founder, builder, or leader with a real story to tell, apply using the form above. Dipo reviews every application personally. No pre-screened questions. No guaranteed softballs. Come ready to go deep.',
   },
   {
     q: 'What kind of questions does Dipo ask?',
-    a: 'The ones most interviewers won\'t. Uncensored Grills exists to reveal the human side of Web3 leaders — the decisions, the failures, the real opinions. If you\'re expecting a product pitch session, this isn\'t it.',
+    a: 'The ones most interviewers won\'t. Uncensored Grills exists to reveal the human side of Web3 leaders: the decisions, the failures, and the real opinions. If you\'re expecting a product pitch session, this isn\'t it.',
   },
   {
     q: 'Do you accept sponsors?',
-    a: 'Potentially — but only with projects and brands that align with what the show stands for. No pay-to-play appearances. If you\'re interested in a partnership, reach out via X at @0xDipo with the details.',
+    a: 'Potentially, but only with projects and brands that align with what the show stands for. No pay to play appearances. Hit the Sponsor Us button below to reach out.',
   },
   {
     q: 'Can I submit a question to be answered on the show?',
@@ -51,11 +51,11 @@ export default function FAQ() {
               <span className="text-gold">getting.</span>
             </h2>
             <p className="text-cream-dim text-[0.88rem] leading-[1.9] font-light max-w-xs">
-              Can't find your answer here? Drop your question in the Ask section above — Dipo reads them all.
+              Can't find your answer here? Drop your question in the Ask section above. Dipo reads them all.
             </p>
           </div>
 
-          {/* Right — accordion */}
+          {/* Right: accordion */}
           <div
             ref={ref}
             className={`reveal-right ${inView ? 'visible' : ''}`}
