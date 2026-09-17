@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import Marquee from '@/components/Marquee'
 import About from '@/components/About'
+import Testimonials from '@/components/Testimonials'
 import Guests from '@/components/Guests'
 import Episodes from '@/components/Episodes'
 import GuestForm from '@/components/GuestForm'
@@ -17,6 +18,7 @@ export default function Home() {
       <Hero />
       <Marquee />
       <About />
+      <Testimonials />
       <Guests />
       <Episodes />
       <GuestForm />
