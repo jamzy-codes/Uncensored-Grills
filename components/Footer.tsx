@@ -9,6 +9,7 @@ export default function Footer() {
     { href: '#guests', label: 'Guests' },
     { href: '#episodes', label: 'Episodes' },
     { href: '#guest-form', label: 'Be a Guest' },
+    { href: 'mailto:EMAIL_PLACEHOLDER?subject=Sponsorship%20Inquiry', label: 'Sponsor Us' },
     { href: '#ask', label: 'Ask a Question' },
     { href: '#faq', label: 'FAQ' },
   ]
@@ -32,10 +33,10 @@ export default function Footer() {
             </div>
             <p className="font-sans font-light text-cream-dim text-[0.85rem] leading-[1.85] max-w-[300px] mb-8">
               A human intelligence show inside Web3. We put founders and leaders on the hot seat
-              and let the truth come out — no filters, no safety nets, no scripts.
+              and let the truth come out. No filters, no safety nets, no scripts.
             </p>
 
-            {/* Social icons — real links */}
+            {/* Social icons: real links */}
             <div className="flex gap-3">
               <a
                 href={X_URL}
@@ -64,7 +65,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {navLinks.map((l) => (
                 <li key={l.href}>
-                  <a href={l.href} className="font-sans font-light text-[0.84rem] text-cream-dim hover:text-gold transition-colors duration-200">
+                  <a href={l.href} className={`${l.label === 'Sponsor Us' ? 'btn-outline' : 'font-sans font-light text-[0.84rem]'} text-cream-dim hover:text-gold transition-colors duration-200`}>
                     {l.label}
                   </a>
                 </li>

@@ -64,6 +64,12 @@ export default function Navbar() {
           >
             Be a Guest
           </a>
+          <a
+            href="mailto:EMAIL_PLACEHOLDER?subject=Sponsorship%20Inquiry"
+            className="btn-outline text-[0.6rem] py-2.5 px-5"
+          >
+            Sponsor Us
+          </a>
         </nav>
 
         {/* Mobile hamburger */}
@@ -101,6 +107,13 @@ export default function Navbar() {
             className="btn-gold text-[0.62rem] py-3 px-6 self-start"
           >
             Be a Guest
+          </a>
+          <a
+            href="mailto:EMAIL_PLACEHOLDER?subject=Sponsorship%20Inquiry"
+            onClick={() => setMenuOpen(false)}
+            className="btn-outline text-[0.62rem] py-3 px-6 self-start"
+          >
+            Sponsor Us
           </a>
         </div>
       </div>
