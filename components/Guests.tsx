@@ -30,6 +30,7 @@ const guests = [
     name: 'Kelano',
     role: 'Web3 Content Creator & Builder',
     detail: 'NFT Expert & Ecosystem Voice',
+    // TODO: Replace Kelano's image when the new asset and filename are provided.
     image: '/images/kelano.jpg',
     xHandle: '@kelanoo',
     xUrl: 'https://x.com/kelanoo',
@@ -40,7 +41,7 @@ const guests = [
   {
     name: 'Milad',
     role: 'Founder & COO of Spring',
-    detail: 'Web3 Operator & Deal Flow Insider — token launches & ecosystem infra',
+    detail: 'Web3 Operator & Deal Flow Insider: token launches & ecosystem infra',
     image: '/images/milad.jpg',
     xHandle: '@web3natural',
     xUrl: 'https://x.com/web3natural',
@@ -69,7 +70,7 @@ export default function Guests() {
             </h2>
           </div>
           <p className="font-sans text-cream-dim text-[0.88rem] leading-[1.9] max-w-xs font-light lg:text-right">
-            Founders, builders, operators, and thinkers. The only entry requirement —
+            Founders, builders, operators, and thinkers. The only entry requirement is
             you have to be building something real.
           </p>
         </div>
