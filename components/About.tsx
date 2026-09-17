@@ -20,7 +20,7 @@ export default function About() {
       <div className="max-w-[1320px] mx-auto px-6 lg:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
-          {/* Left — show text */}
+          {/* Left: show text */}
           <div
             ref={leftRef}
             className={`reveal-left ${leftIn ? 'visible' : ''}`}
@@ -36,7 +36,7 @@ export default function About() {
             <div className="space-y-5 text-cream-dim leading-[1.9] text-[0.95rem] font-light">
               <p>
                 Uncensored Grills is a <span className="text-cream">human intelligence show</span> inside Web3.
-                We sit Web3 founders and leaders down and strip away the performance —
+                We sit Web3 founders and leaders down and strip away the performance.
                 the pitch decks, the talking points, the brand voice. What's left is the human.
               </p>
               <p>
@@ -44,7 +44,7 @@ export default function About() {
                 Real builders. Unfiltered answers. Zero hype.
               </p>
               <p>
-                We sit builders, founders, and protocol architects down and grill them —
+                We sit builders, founders, and protocol architects down and grill them.
                 on the decisions, the failures, the controversies, and the truth behind the code.
                 No teleprompters. No pre-screened questions. Just the conversation you'd have
                 if you could corner someone at a conference after the cameras turned off.
@@ -63,16 +63,16 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right — Dipo card */}
+          {/* Right: Dipo card */}
           <div
             ref={rightRef}
             className={`reveal-right ${rightIn ? 'visible' : ''}`}
           >
-            {/* Dipo photo — large, editorial */}
+            {/* Dipo photo: large, editorial */}
             <div className="relative w-full aspect-[3/4] overflow-hidden mb-0 bracket-corners">
               <Image
                 src="/images/dipo.jpg"
-                  alt="Dipo — Host of Uncensored Grills"
+                  alt="Dipo, Host of Uncensored Grills"
                 fill
                 className="object-cover object-top grayscale-[15%]"
               />
@@ -94,7 +94,7 @@ export default function About() {
               <div className="scanline" />
               <p className="text-cream-dim text-[0.88rem] leading-[1.9] font-light">
                 Dipo is a Web3 growth strategist, brand architect, and ghostwriter focused on{' '}
-                <span className="text-cream">narrative design, audience psychology, and founder positioning</span> —
+                <span className="text-cream">narrative design, audience psychology, and founder positioning</span>.
                 helping crypto projects turn ideas into attention, belief, and community growth.
               </p>
               <div className="mt-5 pt-5 border-t border-gold-line flex items-center justify-between">

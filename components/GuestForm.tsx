@@ -28,7 +28,7 @@ export default function GuestForm() {
           email: form.email,
           role: form.role,
           message: form.why,
-          _subject: `Guest Application — ${form.name}`,
+          _subject: `Guest Application: ${form.name}`,
         }),
       })
       if (res.ok) {
@@ -59,11 +59,11 @@ export default function GuestForm() {
             </h2>
             <p className="text-cream-dim text-[0.95rem] leading-[1.9] font-light max-w-sm">
               We're looking for Web3 founders, builders, and leaders who have something real to say.
-              No PR polish needed. Just bring the truth — we'll handle the rest.
+              No PR polish needed. Just bring the truth. We'll handle the rest.
             </p>
             <div className="mt-10 space-y-5">
               {[
-                { n: '01', text: 'A real conversation — not an interview. We go where the truth lives.' },
+                { n: '01', text: 'A real conversation, not an interview. We go where the truth lives.' },
                 { n: '02', text: 'No questions sent in advance. Come ready for anything.' },
                 { n: '03', text: 'Your episode shared across Uncensored Grills\' YouTube and X channels.' },
               ].map((item) => (

@@ -26,7 +26,7 @@ export default function AskQuestion() {
           name: form.name,
           email: form.email,
           question: form.question,
-          _subject: `Listener Question — from ${form.name}`,
+          _subject: `Listener Question: from ${form.name}`,
         }),
       })
       if (res.ok) {
@@ -57,18 +57,18 @@ export default function AskQuestion() {
               <span className="text-gold">answering?</span>
             </h2>
             <p className="text-cream-dim text-[0.95rem] leading-[1.9] font-light max-w-sm">
-              Drop your question here. The best ones get brought into the show —
+              Drop your question here. The best ones get brought into the show.
               and Dipo has been known to book entire guests just to answer one well-asked question.
             </p>
             <div className="mt-10 border-l-2 border-gold pl-6 py-1">
               <div className="font-mono text-[0.52rem] tracking-[0.2em] uppercase text-gold/50 mb-3">
-                Featured — Answered on Air
+                Featured: Answered on Air
               </div>
               <p className="font-sans font-light text-cream text-[0.95rem] leading-[1.7] italic">
                 "Is decentralization still the goal, or has the industry quietly made peace with centralization?"
               </p>
               <div className="font-mono text-[0.5rem] tracking-[0.14em] uppercase text-cream-ghost mt-3">
-                — Brought up in EP. 04
+                Brought up in EP. 04
               </div>
             </div>
           </div>
@@ -91,14 +91,14 @@ export default function AskQuestion() {
                     <label htmlFor="qName" className="form-label">Your Name *</label>
                     <input id="qName" name="name" type="text" required placeholder="Your name" value={form.name} onChange={handleChange} className="form-input" />
                   </div>
-                  {/* Email is required — not optional */}
+                  {/* Email is required, not optional */}
                   <div className="mb-4">
                     <label htmlFor="qEmail" className="form-label">Email Address *</label>
                     <input id="qEmail" name="email" type="email" required placeholder="you@example.com" value={form.email} onChange={handleChange} className="form-input" />
                   </div>
                   <div className="mb-6">
                     <label htmlFor="question" className="form-label">Your Question *</label>
-                    <textarea id="question" name="question" required rows={6} placeholder="Ask the question that needs asking. The one nobody else is asking. Be specific — the sharper the question, the more likely it gets on air..." value={form.question} onChange={handleChange} className="form-input" />
+                    <textarea id="question" name="question" required rows={6} placeholder="Ask the question that needs asking. The one nobody else is asking. Be specific. The sharper the question, the more likely it gets on air..." value={form.question} onChange={handleChange} className="form-input" />
                   </div>
                   {status === 'error' && (
                     <p className="font-mono text-[0.56rem] tracking-[0.12em] text-red-400 mb-4">Something went wrong. Try again.</p>

@@ -15,7 +15,7 @@ export default function Newsletter() {
     if (!email) return;
     setStatus("sending");
     try {
-      // Calls our internal Next.js API route — API key stays server-side
+      // Calls our internal Next.js API route. The API key stays server-side.
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -54,7 +54,7 @@ export default function Newsletter() {
           </h2>
           <p className="font-sans font-light text-cream-dim text-[0.92rem] leading-[1.9] mb-10 max-w-md mx-auto">
             When a new episode drops, you'll know first. Guest announcements,
-            show notes, and sharp takes from inside the Web3 builder space —
+            show notes, and sharp takes from inside the Web3 builder space.
             straight to your inbox.
           </p>
 

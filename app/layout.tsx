@@ -3,11 +3,11 @@ import { Analytics } from '@vercel/analytics/react'
 import '../styles/globals.css'
 
 export const metadata: Metadata = {
-  title: 'Unchained Grills — Human Intelligence Inside Web3',
+  title: 'Uncensored Grills: Human Intelligence Inside Web3',
   description:
-    'Uncensored conversations with the builders, founders, and thinkers shaping Web3. No filters. No safety nets. Just intelligence under pressure. Hosted by Dipo.',
+    'Uncensored Grills brings builders, founders, and thinkers shaping Web3 into honest conversations. Hosted by Dipo.',
   openGraph: {
-    title: 'Unchained Grills',
+    title: 'Uncensored Grills',
     description: 'Human intelligence inside Web3. Hosted by Dipo.',
     images: ['/images/logo.jpg'],
   },
