@@ -35,7 +35,7 @@ export default function Newsletter() {
   return (
     <section
       id="newsletter"
-      className="relative py-24 lg:py-32 bg-ink overflow-hidden"
+      className="relative py-12 lg:py-20 bg-ink overflow-hidden"
     >
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-line to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-line to-transparent" />
@@ -48,7 +48,7 @@ export default function Newsletter() {
           </div>
           <div className="gold-rule mx-auto mb-8" />
           <h2 className="display-heading text-[clamp(2.4rem,5vw,4rem)] mb-5">
-            The Unchained
+            The Uncensored
             <br />
             <span className="text-gold">Dispatch</span>
           </h2>

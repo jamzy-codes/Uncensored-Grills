@@ -314,7 +314,10 @@ body::before {
 
 /* Track animation */
 .marquee-track {
+  flex: 0 0 max-content;
+  width: max-content;
   animation: marquee 22s linear infinite;
+  transition: none;
   will-change: transform;
 }
 

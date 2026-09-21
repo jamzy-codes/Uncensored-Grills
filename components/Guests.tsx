@@ -1,61 +1,65 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import { useInView } from 'react-intersection-observer'
+import Image from "next/image";
+import { useInView } from "react-intersection-observer";
 
 const guests = [
   {
-    name: 'Leon Abboud',
-    role: 'Founder of Unfungible',
-    detail: 'Brand Strategist & Content Monetization Operator',
-    image: '/images/leon.jpg',
-    xHandle: '@leonabboud',
-    xUrl: 'https://x.com/leonabboud',
-    episode: 'EP. 01',
-    ytUrl: 'https://youtu.be/cGG9cEScE_0?si=2lpWQ7AkdvpmODTy',
-    epTitle: 'Leon Drops Bombs: Power, Culture, Web3',
+    name: "Leon Abboud",
+    role: "Founder of Unfungible",
+    detail: "Brand Strategist & Content Monetization Operator",
+    image: "/images/leon.jpg",
+    xHandle: "@leonabboud",
+    xUrl: "https://x.com/leonabboud",
+    episode: "EP. 01",
+    ytUrl: "https://youtu.be/cGG9cEScE_0?si=2lpWQ7AkdvpmODTy",
+    epTitle: "Leon Drops Bombs: Power, Culture, Web3",
   },
   {
-    name: 'Juan',
-    role: 'Founder & CEO of W3BFlow',
-    detail: 'Web3 Content Strategist & Marketer',
-    image: '/images/juan.jpg',
-    xHandle: '@0xfJuan',
-    xUrl: 'https://x.com/0xfJuan',
-    episode: 'EP. 02',
-    ytUrl: 'https://youtu.be/Y7fCVUOfmGI?si=sttd8tQz9HNXez4d',
-    epTitle: 'Web3Flow Founder Juan on Crypto, Startups & Culture',
+    name: "Juan",
+    role: "Founder & CEO of W3BFlow",
+    detail: "Web3 Content Strategist & Marketer",
+    image: "/images/juan.jpg",
+    xHandle: "@0xfJuan",
+    xUrl: "https://x.com/0xfJuan",
+    episode: "EP. 02",
+    ytUrl: "https://youtu.be/Y7fCVUOfmGI?si=sttd8tQz9HNXez4d",
+    epTitle: "Web3Flow Founder Juan on Crypto, Startups & Culture",
   },
   {
-    name: 'Kelano',
-    role: 'Web3 Content Creator & Builder',
-    detail: 'NFT Expert & Ecosystem Voice',
+    name: "Kelano",
+    role: "Web3 Content Creator & Builder",
+    detail: "NFT Expert & Ecosystem Voice",
     // TODO: Replace Kelano's image when the new asset and filename are provided.
-    image: '/images/kelano.jpg',
-    xHandle: '@kelanoo',
-    xUrl: 'https://x.com/kelanoo',
-    episode: 'EP. 03',
-    ytUrl: 'https://youtu.be/Rgb7858_FI0?si=PB7ZsgFLpHrsRCGC',
-    epTitle: 'Kelano EXPOSES the Truth About NFTs, Branding & Hiring',
+    image: "/images/kelano.jpg",
+    xHandle: "@kelanoo",
+    xUrl: "https://x.com/kelanoo",
+    episode: "EP. 03",
+    ytUrl: "https://youtu.be/Rgb7858_FI0?si=PB7ZsgFLpHrsRCGC",
+    epTitle: "Kelano EXPOSES the Truth About NFTs, Branding & Hiring",
   },
   {
-    name: 'Milad',
-    role: 'Founder & COO of Spring',
-    detail: 'Web3 Operator & Deal Flow Insider: token launches & ecosystem infra',
-    image: '/images/milad.jpg',
-    xHandle: '@web3natural',
-    xUrl: 'https://x.com/web3natural',
-    episode: 'EP. 04',
-    ytUrl: 'https://youtu.be/zHoQD2dSbKc?si=H2Wv4ObuQkuiIJ4K',
-    epTitle: 'The Crypto Market Is Rigged | Low Float, High FDV',
+    name: "Milad",
+    role: "Founder & COO of Spring",
+    detail:
+      "Web3 Operator & Deal Flow Insider: token launches & ecosystem infra",
+    image: "/images/milad.jpg",
+    xHandle: "@web3natural",
+    xUrl: "https://x.com/web3natural",
+    episode: "EP. 04",
+    ytUrl: "https://youtu.be/zHoQD2dSbKc?si=H2Wv4ObuQkuiIJ4K",
+    epTitle: "The Crypto Market Is Rigged | Low Float, High FDV",
   },
-]
+];
 
 export default function Guests() {
-  const { ref, inView } = useInView({ threshold: 0.05, triggerOnce: true })
+  const { ref, inView } = useInView({ threshold: 0.05, triggerOnce: true });
 
   return (
-    <section id="guests" className="relative py-28 lg:py-36 bg-ink overflow-hidden">
+    <section
+      id="guests"
+      className="relative py-12 lg:py-24 bg-ink overflow-hidden"
+    >
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_0%_50%,rgba(201,168,76,0.04),transparent_70%)] pointer-events-none" />
 
       <div className="max-w-[1320px] mx-auto px-6 lg:px-14">
@@ -65,13 +69,14 @@ export default function Guests() {
             <div className="section-kicker mb-6">Past Guests</div>
             <div className="gold-rule mb-6" />
             <h2 className="display-heading text-[clamp(2.8rem,5vw,4.5rem)]">
-              Who's been<br />
+              Who's been
+              <br />
               <span className="text-gold">on the grill.</span>
             </h2>
           </div>
           <p className="font-sans text-cream-dim text-[0.88rem] leading-[1.9] max-w-xs font-light lg:text-right">
-            Founders, builders, operators, and thinkers. The only entry requirement is
-            you have to be building something real.
+            Founders, builders, operators, and thinkers. The only entry
+            requirement is you have to be building something real.
           </p>
         </div>
 
@@ -86,7 +91,7 @@ export default function Guests() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function GuestCard({
@@ -94,13 +99,13 @@ function GuestCard({
   inView,
   delay,
 }: {
-  guest: (typeof guests)[0]
-  inView: boolean
-  delay: number
+  guest: (typeof guests)[0];
+  inView: boolean;
+  delay: number;
 }) {
   return (
     <div
-      className={`group bg-ink hover:bg-ink-mid transition-all duration-300 reveal-up ${inView ? 'visible' : ''}`}
+      className={`group bg-ink hover:bg-ink-mid transition-all duration-300 reveal-up ${inView ? "visible" : ""}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {/* Image */}
@@ -154,5 +159,5 @@ function GuestCard({
         </div>
       </div>
     </div>
-  )
+  );
 }

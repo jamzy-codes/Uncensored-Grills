@@ -1,5 +1,5 @@
 {
-  "name": "uncensored-grills",
+  "name": "uncensoredgrills",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -15,7 +15,6 @@
     "framer-motion": "^11.1.7",
     "@react-three/fiber": "^8.16.8",
     "@react-three/drei": "^9.105.6",
-    "three": "^0.164.1",
     "react-intersection-observer": "^9.10.3",
     "@vercel/analytics": "^1.2.2"
   },
@@ -30,3 +29,4 @@
     "typescript": "^5"
   }
 }
+
