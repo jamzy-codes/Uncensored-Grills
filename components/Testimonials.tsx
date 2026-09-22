@@ -234,8 +234,8 @@ export default function Testimonials() {
           ))}
         </div>
 
-        <div className="mt-6 flex items-center justify-between">
-          <div className="flex gap-2" aria-label="Choose testimonial">
+        <div className="mt-6 flex flex-col items-center gap-5 sm:flex-row sm:justify-between">
+          <div className="flex max-w-full flex-wrap justify-center gap-2 sm:flex-nowrap" aria-label="Choose testimonial">
             {testimonials.map((testimonial, index) => (
               <button
                 key={testimonial.name}
@@ -250,7 +250,7 @@ export default function Testimonials() {
               />
             ))}
           </div>
-          <div className="flex gap-2">
+          <div className="flex flex-shrink-0 gap-2">
             <button
               type="button"
               aria-label="Previous testimonial"
@@ -262,7 +262,7 @@ export default function Testimonials() {
                     testimonials.length,
                 );
               }}
-              className="btn-outline px-3 py-2"
+              className="btn-outline !px-3 !py-2"
             >
               ←
             </button>
@@ -275,7 +275,7 @@ export default function Testimonials() {
                   (currentIndex) => (currentIndex + 1) % testimonials.length,
                 );
               }}
-              className="btn-outline px-3 py-2"
+              className="btn-outline !px-3 !py-2"
             >
               →
             </button>
@@ -285,3 +285,4 @@ export default function Testimonials() {
     </section>
   );
 }
+

@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative isolate min-h-screen min-h-dvh flex items-center overflow-hidden bg-ink"
+      className="relative isolate min-h-0 md:min-h-screen md:min-h-dvh flex items-start md:items-center overflow-hidden bg-ink"
     >
       <div
         aria-hidden="true"
@@ -14,7 +14,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_70%_50%,rgba(201,168,76,0.07)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-[1320px] mx-auto px-6 lg:px-14 pt-16 pb-10">
+      <div className="relative z-10 w-full max-w-[1320px] mx-auto px-6 lg:px-14 pt-24 pb-10 md:pt-16">
         <div className="max-w-3xl">
           <div
             className="section-kicker mb-8 opacity-0 animate-fade-up"
@@ -85,3 +85,6 @@ export default function Hero() {
     </section>
   );
 }
+
+
+

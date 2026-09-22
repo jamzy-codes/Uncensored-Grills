@@ -3,6 +3,15 @@ import { NextResponse } from 'next/server'
 const RATE_LIMIT_WINDOW_MS = 60_000
 const RATE_LIMIT_MAX_REQUESTS = 5
 
+const CLIENT_ERROR_MESSAGES = {
+  invalidEmail: 'Please enter a valid email address.',
+  rateLimited: 'Too many subscription attempts. Please try again later.',
+  unavailable: 'Newsletter signup is temporarily unavailable.',
+  rejected: 'Subscription failed. Please check your email and try again.',
+  providerError: 'Newsletter provider is temporarily unavailable. Please try again later.',
+  serverError: 'Server error. Please try again later.',
+}
+
 type RateLimitRecord = {
   count: number
   resetAt: number
@@ -61,20 +70,107 @@ function isValidEmail(value: unknown) {
   return email.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 }
 
+async function parseJsonResponse(response: Response) {
+  try {
+    const contentType = response.headers.get('content-type') || ''
+
+    if (!contentType.includes('application/json')) {
+      return null
+    }
+
+    return await response.json()
+  } catch {
+    return null
+  }
+}
+
+function getSafeKitErrorSummary(data: unknown) {
+  if (!data || typeof data !== 'object') {
+    return undefined
+  }
+
+  if ('errors' in data && Array.isArray((data as { errors: unknown }).errors)) {
+    return (data as { errors: unknown[] }).errors.map((error) => {
+      if (typeof error === 'string') return error
+
+      if (error && typeof error === 'object') {
+        const errorRecord = error as Record<string, unknown>
+
+        return {
+          code: typeof errorRecord.code === 'string' ? errorRecord.code : undefined,
+          title: typeof errorRecord.title === 'string' ? errorRecord.title : undefined,
+          detail: typeof errorRecord.detail === 'string' ? errorRecord.detail : undefined,
+        }
+      }
+
+      return 'Unknown Kit error'
+    })
+  }
+
+  if ('message' in data && typeof (data as { message: unknown }).message === 'string') {
+    return (data as { message: string }).message
+  }
+
+  return Object.keys(data)
+}
+
+function getClientKitError(response: Response) {
+  if (response.status === 429) {
+    return {
+      status: 429,
+      body: {
+        error: CLIENT_ERROR_MESSAGES.rateLimited,
+        code: 'KIT_RATE_LIMITED',
+      },
+    }
+  }
+
+  if (response.status === 400 || response.status === 422) {
+    return {
+      status: 400,
+      body: {
+        error: CLIENT_ERROR_MESSAGES.rejected,
+        code: 'KIT_REJECTED_EMAIL',
+      },
+    }
+  }
+
+  if (response.status === 401 || response.status === 403 || response.status === 404) {
+    return {
+      status: 502,
+      body: {
+        error: CLIENT_ERROR_MESSAGES.unavailable,
+        code: 'KIT_CONFIGURATION_ERROR',
+      },
+    }
+  }
+
+  return {
+    status: 502,
+    body: {
+      error: CLIENT_ERROR_MESSAGES.providerError,
+      code: 'KIT_PROVIDER_ERROR',
+    },
+  }
+}
+
 export async function POST(request: Request) {
   try {
     const body = await parseRequestBody(request)
     const email = typeof body?.email === 'string' ? body.email.trim() : ''
 
     if (!isValidEmail(email)) {
-      return NextResponse.json({ error: 'Valid email required' }, { status: 400 })
+      return NextResponse.json(
+        { error: CLIENT_ERROR_MESSAGES.invalidEmail, code: 'INVALID_EMAIL' },
+        { status: 400 }
+      )
     }
 
     const rateLimit = checkRateLimit(getClientId(request))
 
     if (rateLimit.limited) {
       return NextResponse.json(
-        { error: 'Too many subscription attempts. Please try again later.' },
+        { error: CLIENT_ERROR_MESSAGES.rateLimited, code: 'RATE_LIMITED' },
         {
           status: 429,
           headers: { 'Retry-After': String(rateLimit.retryAfter) },
@@ -88,8 +184,8 @@ export async function POST(request: Request) {
     if (!kitApiKey || !kitFormId) {
       console.error('Newsletter subscription is missing server configuration.')
       return NextResponse.json(
-        { error: 'Newsletter signup is temporarily unavailable.' },
-        { status: 500 }
+        { error: CLIENT_ERROR_MESSAGES.unavailable, code: 'NEWSLETTER_CONFIG_MISSING' },
+        { status: 503 }
       )
     }
 
@@ -107,17 +203,26 @@ export async function POST(request: Request) {
       }
     )
 
+    const data = await parseJsonResponse(res)
+
     if (!res.ok) {
-      console.error('Kit subscription request failed.', { status: res.status })
-      return NextResponse.json(
-        { error: 'Subscription failed. Please try again.' },
-        { status: res.status }
-      )
+      console.error('Kit subscription request failed.', {
+        status: res.status,
+        statusText: res.statusText,
+        kitError: getSafeKitErrorSummary(data),
+      })
+
+      const clientError = getClientKitError(res)
+
+      return NextResponse.json(clientError.body, { status: clientError.status })
     }
 
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error('Subscribe error:', error)
-    return NextResponse.json({ error: 'Server error' }, { status: 500 })
+    return NextResponse.json(
+      { error: CLIENT_ERROR_MESSAGES.serverError, code: 'SUBSCRIBE_SERVER_ERROR' },
+      { status: 500 }
+    )
   }
 }

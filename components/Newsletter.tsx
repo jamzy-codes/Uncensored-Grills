@@ -9,11 +9,15 @@ export default function Newsletter() {
   const [status, setStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
+  const [errorMessage, setErrorMessage] = useState(
+    "Something went wrong. Please try again.",
+  );
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     setStatus("sending");
+    setErrorMessage("Something went wrong. Please try again.");
     try {
       // Calls our internal Next.js API route. The API key stays server-side.
       const res = await fetch("/api/subscribe", {
@@ -25,9 +29,17 @@ export default function Newsletter() {
         setStatus("success");
         setEmail("");
       } else {
+        const data = await res.json().catch(() => null);
+        const message =
+          data && typeof data.error === "string"
+            ? data.error
+            : "Something went wrong. Please try again.";
+
+        setErrorMessage(message);
         setStatus("error");
       }
     } catch {
+      setErrorMessage("Network error. Please check your connection and try again.");
       setStatus("error");
     }
   };
@@ -52,7 +64,7 @@ export default function Newsletter() {
             <br />
             <span className="text-gold">Dispatch</span>
           </h2>
-          <p className="font-sans font-light text-cream-dim text-[0.92rem] leading-[1.9] mb-10 max-w-md mx-auto">
+          <p className="font-sans font-light text-cream-dim text-[0.92rem] leading-[1.9] mb-10 max-w-md mx-auto break-words">
             When a new episode drops, you'll know first. Guest announcements,
             show notes, and sharp takes from inside the Web3 builder space.
             straight to your inbox.
@@ -68,19 +80,22 @@ export default function Newsletter() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex max-w-md mx-auto">
+            <form
+              onSubmit={handleSubmit}
+              className="flex w-full max-w-md flex-col gap-3 mx-auto sm:flex-row sm:gap-0"
+            >
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@email.com"
-                className="form-input flex-1 border-r-0"
+                className="form-input min-w-0 flex-1 sm:border-r-0"
               />
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="btn-gold flex-shrink-0 disabled:opacity-60 disabled:cursor-not-allowed"
+                className="btn-gold w-full justify-center flex-shrink-0 disabled:opacity-60 disabled:cursor-not-allowed sm:w-auto"
               >
                 {status === "sending" ? "..." : "Subscribe"}
               </button>
@@ -89,7 +104,7 @@ export default function Newsletter() {
 
           {status === "error" && (
             <p className="font-mono text-[0.54rem] tracking-[0.12em] text-red-400 mt-3">
-              Something went wrong. Please try again.
+              {errorMessage}
             </p>
           )}
 
@@ -101,3 +116,5 @@ export default function Newsletter() {
     </section>
   );
 }
+
+
