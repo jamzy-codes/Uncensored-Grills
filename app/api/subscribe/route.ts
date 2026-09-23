@@ -189,6 +189,32 @@ export async function POST(request: Request) {
       )
     }
 
+    const createRes = await fetch('https://api.kit.com/v4/subscribers', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Kit-Api-Key': kitApiKey,
+      },
+      body: JSON.stringify({
+        email_address: email,
+        state: 'inactive',
+      }),
+    })
+
+    const createData = await parseJsonResponse(createRes)
+
+    if (!createRes.ok) {
+      console.error('Kit subscriber creation request failed.', {
+        status: createRes.status,
+        statusText: createRes.statusText,
+        kitError: getSafeKitErrorSummary(createData),
+      })
+
+      const clientError = getClientKitError(createRes)
+
+      return NextResponse.json(clientError.body, { status: clientError.status })
+    }
+
     const res = await fetch(
       `https://api.kit.com/v4/forms/${encodeURIComponent(kitFormId)}/subscribers`,
       {
@@ -226,3 +252,4 @@ export async function POST(request: Request) {
     )
   }
 }
+
