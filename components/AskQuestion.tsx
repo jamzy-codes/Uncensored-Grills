@@ -296,6 +296,27 @@ export default function AskQuestion() {
                   >
                     {status === "sending" ? "Sending..." : "Send Your Question"}
                   </button>
+                  <p className="mt-3 text-center font-mono text-[0.52rem] leading-[1.7] tracking-[0.08em] text-cream-ghost">
+                    This site is protected by reCAPTCHA and the Google{" "}
+                    <a
+                      href="https://policies.google.com/privacy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gold/70 hover:text-gold transition-colors"
+                    >
+                      Privacy Policy
+                    </a>{" "}
+                    and{" "}
+                    <a
+                      href="https://policies.google.com/terms"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gold/70 hover:text-gold transition-colors"
+                    >
+                      Terms of Service
+                    </a>{" "}
+                    apply.
+                  </p>
                 </form>
               )}
             </div>

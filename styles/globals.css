@@ -336,3 +336,7 @@ body::before {
     transparent
   );
 }
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
