@@ -106,13 +106,12 @@ export default function About() {
             <div className="mt-0 border border-gold-line border-t-0 px-7 py-6 bg-ink-mid relative">
               <div className="scanline" />
               <p className="text-cream-dim text-[0.88rem] leading-[1.9] font-light">
-                Dipo is a Web3 growth strategist, brand architect, and
-                ghostwriter focused on{" "}
+                Dipo is a Web3 growth strategist, brand architect, and podcast
+                host helping founders build brands people remember. He combines
+                strategy, storytelling, and content systems to turn ideas into{" "}
                 <span className="text-cream">
-                  narrative design, audience psychology, and founder positioning
+                  attention, trust, and community.
                 </span>
-                . helping crypto projects turn ideas into attention, belief, and
-                community growth.
               </p>
               <div className="mt-5 pt-5 border-t border-gold-line flex items-center justify-between">
                 <div className="font-mono text-[0.54rem] tracking-[0.18em] uppercase text-gold/60">

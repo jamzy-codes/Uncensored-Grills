@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import "../styles/globals.css";
+
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_FORMSPREE_RECAPTCHA_SITE_KEY || "";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://uncensoredgrills.vercel.app"),
@@ -98,6 +101,12 @@ export default function RootLayout({
         />
       </head>
       <body>
+        {RECAPTCHA_SITE_KEY && (
+          <Script
+            src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`}
+            strategy="afterInteractive"
+          />
+        )}
         {children}
         <Analytics />
       </body>

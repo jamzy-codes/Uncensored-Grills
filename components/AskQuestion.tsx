@@ -4,9 +4,11 @@ import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 const FORMSPREE_URL = "https://formspree.io/f/xzezewwy";
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_FORMSPREE_RECAPTCHA_SITE_KEY || "";
 
 const ERROR_MESSAGES = {
   validation: "Please check the form and try again.",
+  captcha: "Captcha verification is unavailable. Please try again soon.",
   rateLimit: "Too many attempts. Please wait a moment and try again.",
   server: "The form service is temporarily unavailable. Please try again soon.",
   network: "Network error. Please check your connection and try again.",
@@ -49,6 +51,22 @@ function getFormspreeErrorMessage(res: Response, data: unknown) {
   }
 
   return ERROR_MESSAGES.default;
+}
+
+function getRecaptchaToken() {
+  return new Promise<string>((resolve, reject) => {
+    if (!RECAPTCHA_SITE_KEY || !window.grecaptcha) {
+      reject(new Error("reCAPTCHA is not available."));
+      return;
+    }
+
+    window.grecaptcha.ready(() => {
+      window.grecaptcha
+        ?.execute(RECAPTCHA_SITE_KEY, { action: "submit" })
+        .then(resolve)
+        .catch(reject);
+    });
+  });
 }
 
 export default function AskQuestion() {
@@ -100,6 +118,8 @@ export default function AskQuestion() {
     setErrorMessage(ERROR_MESSAGES.default);
 
     try {
+      const recaptchaToken = await getRecaptchaToken();
+
       const res = await fetch(FORMSPREE_URL, {
         method: "POST",
         headers: {
@@ -112,6 +132,7 @@ export default function AskQuestion() {
           question: form.question,
           _subject: `Listener Question: from ${form.name}`,
           _gotcha: form._gotcha,
+          "g-recaptcha-response": recaptchaToken,
         }),
       });
 
@@ -121,11 +142,16 @@ export default function AskQuestion() {
         setForm({ name: "", email: "", question: "", _gotcha: "" });
       } else {
         const data = await parseFormspreeError(res);
+        if (process.env.NODE_ENV !== "production") console.warn("Formspree error", res.status, data);
         setErrorMessage(getFormspreeErrorMessage(res, data));
         setStatus("error");
       }
-    } catch {
-      setErrorMessage(ERROR_MESSAGES.network);
+    } catch (error) {
+      setErrorMessage(
+        error instanceof Error && error.message === "reCAPTCHA is not available."
+          ? ERROR_MESSAGES.captcha
+          : ERROR_MESSAGES.network,
+      );
       setStatus("error");
     }
   };
